@@ -40,6 +40,9 @@ function createBoard() {
     }
 
 
+
+
+  
     gameBoard.append(square);
   });
 }
@@ -340,3 +343,26 @@ function checkForWin(){
 
 }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  var pieces = document.querySelectorAll('.piece');
+  var currentPieceElement = document.getElementById('currentpiece');
+
+  pieces.forEach(piece => {
+ 
+    piece.addEventListener('mouseenter', function() {
+
+      var tooltipText = this.id;
+
+  
+      currentPieceElement.textContent = tooltipText;
+    });
+
+    
+    piece.addEventListener('mouseleave', function() {
+      
+      currentPieceElement.textContent = '';
+    });
+  });
+});
+
